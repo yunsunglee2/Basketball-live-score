@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nanum+Gothic:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,800;1,300;1,400;1,500;1,700;1,800&family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #fff ;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #263343;
+  padding: 10px 180px;
+}
+.header_logo{
+  color: #d49466;
+  font-size: 24px;
+}
+.header_menu{
+  display: flex;
+  list-style-type: none;
+  padding-left: 0px;
+  width: 800px;
+  justify-content: space-between;
+}
+.header_menu li {
+  padding: 0 12px;
+}
+.header_menu li:hover {
+
+}
+.header_icon{
+  color: white;
+}
+#header_icon i {
+  padding: 0px 4px;
+}
+
+#container {
+  background-color: #263;
+}
+.main_banner {
+  width: 80%;
+  height: 600px;
+  margin: 0px 180px;
+  display: flex;
+}
+.main_banner .text{
+  background-color: #5F9EA0;
+  width: 25%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+.main_banner .text .title{
+  position: absolute;
+  font-size: 40px;
+  font-weight: 600;
+  color: 	#F5F5F5;
+  width: 500px;
+  z-index: 1;
+  top: 140px;
+  left: 280px
+}
+.main_banner .text .subtitle{
+  position: absolute;
+  font-size: 20px;
+  font-weight: 360;
+  color: 	#F5F5F5;
+  width: 450px;
+  z-index: 1;
+  top: 310px;
+  left: 280px
+}
+.main_banner .image{
+  background-color: 	#ADD8E6;
+  width: 75%;
+  height: 600px;
+  scale: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.game_plan {
+  font-weight: 400;
+  text-align: center;
+  color: #F5F5F5;
+  background-color: #d49466;
+  height: 170px;
+  width: 100%px;
+  margin: 0px 0px;
+}
+.game_plan h3 {
+  margin: 0px;
+}
+.game_plan .games {
+  display: flex;
+}
+#info {
+  display: flex;
+  width: 80%;
+  height: 400px;
+  background-color: #263343;
+  margin: 0px 180px;
+}
+#info .standing{
+  width: 60%;
+  height: 400px;
+  background-color: #8c8484;
+}
+#info .players{
+  width: 40%;
+  height: 400px;
+  background-color: #000;
+}
