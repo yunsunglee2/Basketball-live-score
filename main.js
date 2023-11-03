@@ -1,4 +1,4 @@
-const url_1 = "https://www.balldontlie.io/api/v1/teams"
+const url_1 = "https://www.balldontlie.io/api/v1/games"
 const $ul = document.querySelector('#topFiveTeam')
 
 //json 파일에서 받아오기
@@ -27,15 +27,15 @@ function createHTMLString(game) {
     return `
     <div class="game">
     <div class="teams">
-      <span class="homeTeam">${game['full_name']}</span>
-      <span class="awayTeam">${game['full_name']}</span>
+      <span class="homeTeam">${game['home_team']['full_name']}</span>
+      <span class="awayTeam">${game['visitor_team']['full_name']}</span>
     </div>
   </div>
   <div class="inProgress"></div>
   <div class="timeReamining"></div>
   <div class="score">
-    <span class="homeTeamScore"></span>
-    <span class="awayTeamScore"></span>
+    <span class="homeTeamScore">${game['home_team_score']}</span>
+    <span class="awayTeamScore">${game['visitor_team_score']}</span>
   </div>
     `;
 }
