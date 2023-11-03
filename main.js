@@ -1,53 +1,76 @@
-const GAMECOUNT = 8;
-const $games = document.querySelector('.games');
+const url_1 = "https://www.balldontlie.io/api/v1/teams"
+const $ul = document.querySelector('#topFiveTeam')
 
-for(let i = 0; i < (GAMECOUNT-1); i++){
-  const $game = document.createElement('div');
-  const $teams = document.createElement('div');
-  const $team1 = document.createElement('span');
-  const $team2 = document.createElement('span');
-  const $inProgress = document.createElement('div');
-  const $timeRemaining = document.createElement('div');
-  const $score = document.createElement('div');
-  const $score1 = document.createElement('span');
-  const $score2 = document.createElement('span');
-
-  $game.className = `game-${i+1}`
-  $teams.className = 'teams'
-  $team1.className = 'team1';
-  $team1.textContent = 'Atlanta Hawks';
-  $team2.className = 'team2';
-  $team2.textContent = 'Los Angeles Lakers';
-
-  $inProgress.className = 'inProgress';
-  $inProgress.textContent = '3rd quater';
-  $timeRemaining.className = 'timeRemaining';
-  $timeRemaining.textContent = '3:47';
-
-  $score.className = 'score';
-  $score1.className = 'scroe1'; 
-  $score1.textContent = '64';
-  $score2.textContent = '54';
-  $score2.className = 'scroe2'; 
-
-  $teams.append($team1, $team2);
-  $score.append($score1, $score2);
-  $game.append($teams, $inProgress, $timeRemaining, $score);
-  $games.append($game);
-  console.log($games);
+//json 파일에서 받아오기
+function loadGames() {
+    return fetch(url_1)
+    .then(response => response.json())
+    .then(json => json.data);
 }
 
-{/* <div class="games">
-  <div class="game1">
-    <div className="teams">
-      <span className="team1"></span>
-      <span className="team2"></span>
+// 불러온 데이터 업데이트
+function displayGames(games) {
+    const container = document.querySelector('.games')
+    container.innerHTML = games.map( game => createHTMLString(game)).join('');
+}
+
+// function isHome(team){
+//     if(team.conference === 'east') {
+//         return true;
+//     }
+// }
+    // json 파일 배열 데이터에서 조건에 맞는 값만 가져오는 방법 filter? 
+    // 팀 8개만 불러오는 방법
+    
+    // 불러온 데이터로 부터 HTML list 생성
+function createHTMLString(game) {
+    return `
+    <div class="game">
+    <div class="teams">
+      <span class="homeTeam">${game['full_name']}</span>
+      <span class="awayTeam">${game['full_name']}</span>
     </div>
   </div>
-  <div className="inProgress"></div>
-  <div className="timeReamining"></div>
-  <div className="score">
-    <span className="scroe1"></span>
-    <span className="scroe2"></span>
+  <div class="inProgress"></div>
+  <div class="timeReamining"></div>
+  <div class="score">
+    <span class="homeTeamScore"></span>
+    <span class="awayTeamScore"></span>
   </div>
-</div> */}
+    `;
+}
+
+// main
+loadGames()
+.then(games => {
+    console.log(games)
+    displayGames(games);
+    // setEventListeners(team);
+})
+.catch(console.log);
+
+
+
+// fetch(url)
+//     .then(function (response) {
+//         if(response.status !== 200){
+//             alert('Error');
+//         } else {
+//             return response.json()
+//         }
+// }).then(function(jsonData){
+//   let data = jsonData.data;
+//   console.log(data);
+//   for( let i = 0; i < 5; i++ ){
+//       if(data[i]['conference'] === 'East'){
+//         console.log(data[i])
+//         const list = document.createElement('li')
+//         list.className = data[i]['city']
+//         list.innerHTML = data[i]['full_name']
+//         $ul.append(list);
+//       }
+//   }
+// })
+
+
+
